@@ -57,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
         playerRbody.velocity = new Vector2(playerRbody.velocity.x, jumpForce);
     }
 
-    private bool Crouch(float dirVert)
+    private void Crouch(float dirVert)
     {
         if(dirVert == -1)
         {
@@ -70,7 +70,6 @@ public class PlayerMovement : MonoBehaviour
             isCrouched = false;
             canMove = true;
         }
-        return isCrouched;
     }
 
     private void FlipSprite(float direction)
