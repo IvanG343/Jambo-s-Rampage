@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] LayerMask groundLayer;
 
     [Header("Player state params")]
-    private bool isCrouched = false;
+    public bool isCrouched = false;
     private bool canMove = true;
 
     [Header("References")]
