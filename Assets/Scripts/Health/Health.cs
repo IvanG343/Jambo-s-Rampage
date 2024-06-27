@@ -8,7 +8,7 @@ public class Health : MonoBehaviour
 
     [Header("Components")]
     [SerializeField] private Behaviour[] components;
-    private Rigidbody2D rb;
+    protected Rigidbody2D rb;
     protected Animator animator;
 
     public float CurrentHealth
@@ -47,7 +47,9 @@ public class Health : MonoBehaviour
     {
         foreach (Behaviour component in components)
             component.enabled = false;
-        rb.isKinematic = true;
+
+        if(gameObject.layer == 8)
+            rb.isKinematic = true;
     }
 
     public void Deactivate()

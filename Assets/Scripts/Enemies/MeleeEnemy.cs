@@ -5,7 +5,6 @@ public class MeleeEnemy : Enemy
     [Header("Move params")]
     [SerializeField] private float moveSpeed;
     private Transform enemyTransform;
-    private float distance;
 
     [Header("Damage params")]
     [SerializeField] private float damage;
@@ -26,13 +25,10 @@ public class MeleeEnemy : Enemy
         MoveTowardsPlayer();
     }
 
-
-
     private void MoveTowardsPlayer()
     {
         float distanceToPlayer = Mathf.Abs(playerTransform.position.x - transform.position.x);
-        Debug.Log(distanceToPlayer);
-        if (distanceToPlayer > 0.1f)
+        if (distanceToPlayer > 0.5f)
         {
             transform.position = new Vector2(enemyTransform.position.x + Time.deltaTime * direction * moveSpeed, enemyTransform.position.y);
             anim.SetBool("isMoving", true);
@@ -50,5 +46,10 @@ public class MeleeEnemy : Enemy
             collision.gameObject.GetComponent<Health>().TakeDamage(damage);
             anim.SetTrigger("Explode");
         }
+    }
+
+    private void OnBecameInvisible()
+    {
+        Destroy(gameObject);
     }
 }

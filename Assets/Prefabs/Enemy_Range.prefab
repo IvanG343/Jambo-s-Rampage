@@ -10,14 +10,14 @@ GameObject:
   m_Component:
   - component: {fileID: 7846110862543541951}
   - component: {fileID: 5458237819018740503}
+  - component: {fileID: 8259333458654303994}
   - component: {fileID: 7299486719615977031}
   - component: {fileID: 6790493660974715436}
-  - component: {fileID: 8259333458654303994}
-  - component: {fileID: 6249649465629214205}
   - component: {fileID: 2901957673354268508}
+  - component: {fileID: 6249649465629214205}
   m_Layer: 8
   m_Name: Enemy_Range
-  m_TagString: Enemy_Melee
+  m_TagString: Enemy_Range
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 20
   m_Sprite: {fileID: -49698770, guid: bcbff6e770373044cbcb6bb162ea0a08, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -90,6 +90,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &8259333458654303994
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3185494431874089289}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cb8b10fd5f4ea0c49b96a4c7748a4bcb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!61 &7299486719615977031
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -147,7 +168,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 1000
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -162,27 +183,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!95 &8259333458654303994
-Animator:
-  serializedVersion: 5
+--- !u!114 &2901957673354268508
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3185494431874089289}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: cb8b10fd5f4ea0c49b96a4c7748a4bcb, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0326ec36e7b431143bdd2bd7ae3892eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 3
+  components:
+  - {fileID: 6249649465629214205}
+  - {fileID: 7299486719615977031}
 --- !u!114 &6249649465629214205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,22 +217,6 @@ MonoBehaviour:
   burstInterval: 0.15
   enemyBullet: {fileID: 6324380906779675887, guid: d49f2d3f937752f43809804ea567302a, type: 3}
   firePoint: {fileID: 6066946786045873507}
---- !u!114 &2901957673354268508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3185494431874089289}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0326ec36e7b431143bdd2bd7ae3892eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 3
-  components:
-  - {fileID: 6249649465629214205}
-  - {fileID: 7299486719615977031}
 --- !u!1 &4323395091210086446
 GameObject:
   m_ObjectHideFlags: 0

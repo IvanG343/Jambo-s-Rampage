@@ -7,6 +7,8 @@ TagManager:
   - Traps
   - Enemy_Range
   - Enemy_Melee
+  - Enemy_Portal
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -16,11 +18,11 @@ TagManager:
   - UI
   - Ground
   - Player
-  - Enemy
+  - Enemy_Unit
   - Projectile
   - Traps
   - Collectible
-  - 
+  - Enemy_Building
   - 
   - 
   - 
