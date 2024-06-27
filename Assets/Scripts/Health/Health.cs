@@ -7,7 +7,9 @@ public class Health : MonoBehaviour
     protected float currentHealth;
 
     [Header("Components")]
-    [SerializeField] private Behaviour[] components;
+    [SerializeField] private Behaviour[] componentsToDisable;
+
+    [Header("References")]
     protected Rigidbody2D rb;
     protected Animator animator;
 
@@ -40,12 +42,12 @@ public class Health : MonoBehaviour
 
     protected virtual void OnDamageTaken()
     {
-        
+        //
     }
 
     protected virtual void OnDeath()
     {
-        foreach (Behaviour component in components)
+        foreach (Behaviour component in componentsToDisable)
             component.enabled = false;
 
         if(gameObject.layer == 8)

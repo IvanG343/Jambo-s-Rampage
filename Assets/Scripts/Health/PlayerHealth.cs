@@ -21,13 +21,14 @@ public class PlayerHealth : Health
 
     protected override void OnDamageTaken()
     {
+        CameraShake.Shake();
         animator.SetTrigger("Hurt");
         StartCoroutine(Invulnerability());
-        CameraShake.Shake();
     }
 
     protected override void OnDeath()
     {
+        CameraShake.Shake();
         playerInput.enabled = false;
     }
 

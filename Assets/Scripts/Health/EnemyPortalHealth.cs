@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class EnemyPortalHealth : Health
 {
+    [Header("References")]
     [SerializeField] GameObject explosion;
 
     protected override void Start()
@@ -13,6 +14,5 @@ public class EnemyPortalHealth : Health
     {
         base.OnDeath();
         Instantiate(explosion, gameObject.transform.position, gameObject.transform.rotation);
-        CameraShake.Shake();
     }
 }
