@@ -15,13 +15,13 @@ public class PlayerMovement : MonoBehaviour
     [Header("References")]
     private Rigidbody2D playerRbody;
     private Animator playerAnim;
-    private CapsuleCollider2D capsuleCollider;
+    private BoxCollider2D playerCollider;
 
     private void Start()
     {
         playerRbody = GetComponent<Rigidbody2D>();
         playerAnim = GetComponent<Animator>();
-        capsuleCollider = GetComponent<CapsuleCollider2D>();
+        playerCollider = GetComponent<BoxCollider2D>();
     }
 
     public void Move(float dirHor, float dirVert, bool jumpBtnPressed)
@@ -82,8 +82,8 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isGrounded()
     {
-        RaycastHit2D raycastHit = Physics2D.CapsuleCast(capsuleCollider.bounds.center, capsuleCollider.bounds.size, capsuleCollider.direction,
-            0, Vector2.down, 0.1f, groundLayer);
+        //RaycastHit2D raycastHit = Physics2D.BoxCast(playerCollider.bounds.center, playerCollider.bounds.size, playerCollider.direction,0, Vector2.down, 0.1f, groundLayer);
+        RaycastHit2D raycastHit = Physics2D.BoxCast(playerCollider.bounds.center, playerCollider.bounds.size, 0, Vector2.down, 0.1f, groundLayer);
         return raycastHit.collider != null;
     }
 }

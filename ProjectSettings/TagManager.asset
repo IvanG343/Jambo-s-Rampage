@@ -5,7 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Traps
-  - Enemy
+  - Enemy_Range
+  - Enemy_Melee
   layers:
   - Default
   - TransparentFX
@@ -16,9 +17,9 @@ TagManager:
   - Ground
   - Player
   - Enemy
-  - 
-  - 
-  - 
+  - Projectile
+  - Traps
+  - Collectible
   - 
   - 
   - 

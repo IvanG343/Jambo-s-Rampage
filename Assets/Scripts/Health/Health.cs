@@ -1,70 +1,57 @@
-using System.Collections;
 using UnityEngine;
 
 public class Health : MonoBehaviour
 {
     [Header("Health params")]
-    [SerializeField] private float maxHealth;
-    public float currentHealth { get; private set; }
-    public bool isAlive = true;
-
-    [Header("Invulnerability")]
-    [SerializeField] private float invDuration;
-    [SerializeField] private int flashes;
-    private SpriteRenderer playerSprite;
-    public bool isInv { get; private set; }
+    [SerializeField] protected float maxHealth;
+    protected float currentHealth;
 
     [Header("Components")]
-    private Animator animator;
-    private PlayerInput playerInput;
+    [SerializeField] private Behaviour[] components;
+    private Rigidbody2D rb;
+    protected Animator animator;
 
-    private void Start()
+    public float CurrentHealth
     {
-        currentHealth = maxHealth;
-        animator = GetComponent<Animator>();
-        playerInput = GetComponent<PlayerInput>();
-        playerSprite = GetComponent<SpriteRenderer>();
+        get { return currentHealth; }
     }
 
-    public void TakeDamage(float damage)
+    protected virtual void Start()
+    {
+        currentHealth = maxHealth;
+        rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+    }
+
+    public virtual void TakeDamage(float damage)
     {
         currentHealth = Mathf.Clamp(currentHealth - damage, 0, maxHealth);
 
-        if(currentHealth > 0)
+        if (currentHealth > 0)
         {
-            animator.SetTrigger("Hurt");
-            StartCoroutine(Invulnerability());
+            OnDamageTaken();
         }
         else
         {
-            if(isAlive)
-            {
-                isAlive = false;
-                animator.SetTrigger("Die");
-                playerInput.enabled = false;
-            }
+            animator.SetTrigger("Die");
+            OnDeath();
         }
-
     }
 
-    public void Heal(float value)
+    protected virtual void OnDamageTaken()
     {
-        currentHealth = Mathf.Clamp(currentHealth + value, 0, maxHealth);
+        
     }
 
-    private IEnumerator Invulnerability()
+    protected virtual void OnDeath()
     {
-        Physics2D.IgnoreLayerCollision(7, 8, true);
-        isInv = true;
-        for (int i = 0; i < flashes; i++)
-        {
-            playerSprite.color = new Color(1, 1, 1, 0.5f);
-            yield return new WaitForSeconds(invDuration / (flashes * 2));
-            playerSprite.color = Color.white;
-            yield return new WaitForSeconds(invDuration / (flashes * 2));
-        }
-        Physics2D.IgnoreLayerCollision(7, 8, false);
-        isInv = false;
+        foreach (Behaviour component in components)
+            component.enabled = false;
+        rb.isKinematic = true;
     }
 
+    public void Deactivate()
+    {
+        gameObject.SetActive(false);
+    }
 }

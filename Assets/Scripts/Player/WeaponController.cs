@@ -30,8 +30,6 @@ public class WeaponController : MonoBehaviour
             else
                 shotRb.velocity = new Vector2(shotSpeed * -1, shotRb.velocity.y);
 
-            Destroy(shot.gameObject, 1f);
-
             nextShotTime = Time.time + fireRate;
         }
     }

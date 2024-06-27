@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class Collectible : MonoBehaviour
 {
-    private Health playerHealth;
+    private PlayerHealth playerHealth;
 
     private void Start()
     {
-        playerHealth = GameObject.Find("Hero").GetComponent<Health>();
+        playerHealth = GameObject.Find("Hero").GetComponent<PlayerHealth>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
