@@ -23,6 +23,7 @@ public class PlayerHealth : Health
     {
         animator.SetTrigger("Hurt");
         StartCoroutine(Invulnerability());
+        CameraShake.Shake();
     }
 
     protected override void OnDeath()

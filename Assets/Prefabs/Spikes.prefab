@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1522585705853262238}
   - component: {fileID: 6734230011326214697}
   - component: {fileID: 1413189462858758096}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Spikes
   m_TagString: Traps
   m_Icon: {fileID: 0}
@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56f3bc1c679cffe47a539956ea751bef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 100
 --- !u!61 &1413189462858758096
 BoxCollider2D:
   m_ObjectHideFlags: 0
