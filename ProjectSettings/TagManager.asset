@@ -8,7 +8,7 @@ TagManager:
   - Enemy_Range
   - Enemy_Melee
   - Enemy_Portal
-  - Enemy
+  - Enemy_Turret
   layers:
   - Default
   - TransparentFX

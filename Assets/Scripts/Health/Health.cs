@@ -35,7 +35,8 @@ public class Health : MonoBehaviour
         }
         else
         {
-            animator.SetTrigger("Die");
+            if(animator != null)
+                animator.SetTrigger("Die");
             OnDeath();
         }
     }

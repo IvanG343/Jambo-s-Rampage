@@ -9,13 +9,16 @@ public class PlayerHealth : Health
     private SpriteRenderer playerSprite;
     public bool isInv { get; private set; }
 
-    [Header("Components")]
+    [Header("References")]
     private PlayerInput playerInput;
+    private BoxCollider2D boxCollider;
+    public PhysicsMaterial2D staticMat;
 
     protected override void Start()
     {
         base.Start();
         playerInput = GetComponent<PlayerInput>();
+        boxCollider = GetComponent<BoxCollider2D>();
         playerSprite = GetComponent<SpriteRenderer>();
     }
 
@@ -30,6 +33,10 @@ public class PlayerHealth : Health
     {
         CameraShake.Shake();
         playerInput.enabled = false;
+        boxCollider.enabled = false;
+        rb.isKinematic = true;
+        rb.velocity = Vector3.zero;
+        rb.sharedMaterial = staticMat;
     }
 
     public void Heal(float value)

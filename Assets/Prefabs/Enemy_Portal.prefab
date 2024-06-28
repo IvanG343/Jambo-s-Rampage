@@ -41,7 +41,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2812807018460252385}
   - component: {fileID: 5038525758039478772}
-  - component: {fileID: 1385436649121927008}
   - component: {fileID: 2321360050965049293}
   - component: {fileID: 7296858914747570426}
   - component: {fileID: 7745214180284825191}
@@ -120,27 +119,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &1385436649121927008
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5342204162942199540}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e515d11d1f5aef843a860ecb91bdd2be, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!61 &2321360050965049293
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -202,6 +180,7 @@ MonoBehaviour:
   componentsToDisable:
   - {fileID: 2321360050965049293}
   - {fileID: 7745214180284825191}
+  brokenSprite: {fileID: 21300000, guid: fdb25cd5e5f9e7f47a77af2b43622d24, type: 3}
   explosion: {fileID: 5086377387577643896, guid: 09482c6f633793c449d28a799d9e3c8b, type: 3}
 --- !u!114 &7745214180284825191
 MonoBehaviour:
@@ -217,5 +196,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 4629245150850608470}
   enemy: {fileID: 3111900346237131111, guid: 35a634bf24bf5774c80850e267f81f05, type: 3}
-  spawnCooldown: 3
-  maxEnemiesToSpawn: 3
+  spawnCooldown: 1.5
+  maxEnemiesToSpawn: 1
