@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyPortalSpawner : MonoBehaviour
+public class EnemySpawner : MonoBehaviour
 {
     [Header("Spawn params")]
     [SerializeField] private Transform spawnPoint;
@@ -10,12 +10,10 @@ public class EnemyPortalSpawner : MonoBehaviour
     private float nextSpawnTime;
 
     [Header("References")]
-    private Animator anim;
     private Camera mainCamera;
 
     private void Start()
     {
-        anim = GetComponent<Animator>();
         mainCamera = Camera.main;
         nextSpawnTime = 0;
     }
@@ -38,7 +36,7 @@ public class EnemyPortalSpawner : MonoBehaviour
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy_Melee");
         foreach (GameObject enemy in enemies)
         {
-            if (enemy.name == "Enemy_Melee(Clone)")
+            if (enemy.name == "Kamikaze(Clone)")
                 enemiesCount++;
         }
         return enemiesCount < maxEnemiesToSpawn;

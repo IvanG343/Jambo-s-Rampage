@@ -3,21 +3,16 @@ using UnityEngine;
 public class EnemyStructHealth : Health
 {
     [Header("Visual params")]
-    [SerializeField] Sprite brokenSprite;
-    private SpriteRenderer spriteRenderer;
+    [SerializeField] private Sprite brokenSprite;
 
     [Header("References")]
-    [SerializeField] GameObject explosion;
-
-    protected override void Start()
-    {
-        base.Start();
-        spriteRenderer = GetComponent<SpriteRenderer>();
-    }
+    [SerializeField] private GameObject explosion;
 
     protected override void OnDeath()
     {
-        base.OnDeath();
+        foreach (Behaviour component in componentsToDisable)
+            component.enabled = false;
+
         Instantiate(explosion, gameObject.transform.position, gameObject.transform.rotation);
         ChangeSpriteToBroken();
     }
