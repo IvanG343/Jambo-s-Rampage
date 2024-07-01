@@ -255,7 +255,6 @@ GameObject:
   - component: {fileID: 6153694679071415029}
   - component: {fileID: 4059907947680154626}
   - component: {fileID: 4991891704655293857}
-  - component: {fileID: 2334826494698736265}
   - component: {fileID: 7466323468262462293}
   - component: {fileID: 4630137579490210587}
   m_Layer: 12
@@ -386,33 +385,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.25, y: 2.25}
   m_EdgeRadius: 0
---- !u!50 &2334826494698736265
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2687790649422281776}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!114 &7466323468262462293
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -427,9 +399,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 5
   componentsToDisable:
-  - {fileID: 4991891704655293857}
   - {fileID: 4630137579490210587}
   - {fileID: 5876695114780099992}
+  - {fileID: 4991891704655293857}
   brokenSprite: {fileID: 2087163122, guid: aa6b245fb813f584399f3a276bbec0fd, type: 3}
   explosion: {fileID: 5086377387577643896, guid: 09482c6f633793c449d28a799d9e3c8b, type: 3}
 --- !u!114 &4630137579490210587

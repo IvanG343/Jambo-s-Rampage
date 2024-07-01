@@ -81,7 +81,7 @@ MonoBehaviour:
   firePoint: {fileID: 4629438873272421749}
   bullet: {fileID: 8391705303991236274, guid: 3f12c526e1fcad747b864939534c45e6, type: 3}
   shotSpeed: 25
-  fireRate: 0.25
+  fireRate: 0.15
 --- !u!114 &4055353079536797565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,6 +108,7 @@ GameObject:
   - component: {fileID: 3905252505211239760}
   - component: {fileID: 2319644476977360186}
   - component: {fileID: 4073771048679972883}
+  - component: {fileID: 5419082861857345858}
   - component: {fileID: 8362252384677778683}
   - component: {fileID: 6998417353682529289}
   - component: {fileID: 1527276530016166328}
@@ -211,9 +212,9 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &4073771048679972883
 BoxCollider2D:
@@ -222,7 +223,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5949863497593664395}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -260,6 +261,41 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.205512, y: 1.888833}
   m_EdgeRadius: 0
+--- !u!70 &5419082861857345858
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5949863497593664395}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.19507937, y: 0.82648396}
+  m_Size: {x: 1.9202802, y: 1.635673}
+  m_Direction: 1
 --- !u!95 &8362252384677778683
 Animator:
   serializedVersion: 5
@@ -325,8 +361,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   standOffset: {x: 0, y: 0}
   standSize: {x: 0, y: 0}
-  crouchOffset: {x: -0.3759623, y: 0.2463169}
-  crouchSize: {x: 2.364752, y: 0.4999371}
+  crouchOffset: {x: -0.04334531, y: 0.1925824}
+  crouchSize: {x: 3.102757, y: 0.3678764}
 --- !u!114 &7591782900992407713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -342,7 +378,7 @@ MonoBehaviour:
   maxHealth: 5
   componentsToDisable:
   - {fileID: 6998417353682529289}
-  - {fileID: 4073771048679972883}
+  - {fileID: 6998417353682529289}
   invDuration: 2
   flashes: 3
   staticMat: {fileID: 6200000, guid: c199b4779a26a074f8dc7ea6531f41f5, type: 2}

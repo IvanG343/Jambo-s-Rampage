@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -15,13 +16,13 @@ public class PlayerMovement : MonoBehaviour
     [Header("References")]
     private Rigidbody2D playerRbody;
     private Animator playerAnim;
-    private BoxCollider2D playerCollider;
+    private CapsuleCollider2D playerCollider;
 
     private void Start()
     {
         playerRbody = GetComponent<Rigidbody2D>();
         playerAnim = GetComponent<Animator>();
-        playerCollider = GetComponent<BoxCollider2D>();
+        playerCollider = GetComponent<CapsuleCollider2D>();
     }
 
     public void Move(float dirHor, float dirVert, bool jumpBtnPressed)
@@ -82,7 +83,6 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isGrounded()
     {
-        //RaycastHit2D raycastHit = Physics2D.BoxCast(playerCollider.bounds.center, playerCollider.bounds.size, playerCollider.direction,0, Vector2.down, 0.1f, groundLayer);
         RaycastHit2D raycastHit = Physics2D.BoxCast(playerCollider.bounds.center, playerCollider.bounds.size, 0, Vector2.down, 0.1f, groundLayer);
         return raycastHit.collider != null;
     }

@@ -15,14 +15,13 @@ public class PlayerHealth : Health
     {
         CameraShake.Shake();
         animator.SetTrigger("Hurt");
-        StartCoroutine(Invulnerability());
+        StartCoroutine(Invulnerability(invDuration, flashes));
     }
 
     protected override void OnDeath()
     {
         base.OnDeath();
         CameraShake.Shake();
-        rb.velocity = Vector3.zero;
         rb.sharedMaterial = staticMat;
     }
 
@@ -31,16 +30,16 @@ public class PlayerHealth : Health
         currentHealth = Mathf.Clamp(currentHealth + value, 0, maxHealth);
     }
 
-    private IEnumerator Invulnerability()
+    private IEnumerator Invulnerability(float _invDuration, int _flashes)
     {
         Physics2D.IgnoreLayerCollision(7, 8, true);
         isInv = true;
         for (int i = 0; i < flashes; i++)
         {
             spriteRenderer.color = new Color(1, 1, 1, 0.5f);
-            yield return new WaitForSeconds(invDuration / (flashes * 2));
+            yield return new WaitForSeconds(_invDuration / (_flashes * 2));
             spriteRenderer.color = Color.white;
-            yield return new WaitForSeconds(invDuration / (flashes * 2));
+            yield return new WaitForSeconds(_invDuration / (_flashes * 2));
         }
         Physics2D.IgnoreLayerCollision(7, 8, false);
         isInv = false;

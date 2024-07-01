@@ -5,6 +5,7 @@ public class Health : MonoBehaviour
     [Header("Health params")]
     [SerializeField] protected float maxHealth;
     protected float currentHealth;
+    private bool isAlive = true;
 
     [Header("Components")]
     [SerializeField] protected Behaviour[] componentsToDisable;
@@ -39,7 +40,8 @@ public class Health : MonoBehaviour
         if (currentHealth > 0)
             OnDamageTaken();
         else
-            OnDeath();
+            if (isAlive)
+                OnDeath();
     }
 
     protected virtual void OnDamageTaken()
@@ -50,11 +52,13 @@ public class Health : MonoBehaviour
 
     protected virtual void OnDeath()
     {
+        isAlive = false;
+
         foreach (Behaviour component in componentsToDisable)
             component.enabled = false;
 
-        rb.isKinematic = true;
         animator.SetTrigger("Die");
+        gameObject.layer = 14; //Move object to "Dead" layer, so the object is no longer interactible with other objects like player, enemy, bullets etc. 
     }
 
     private void UpdateHealthBar(float _currentHealth, float _maxHealth)
