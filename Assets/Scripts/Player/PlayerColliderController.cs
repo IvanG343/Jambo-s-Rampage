@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerColliderController : MonoBehaviour
 {
     private PlayerMovement playerMovement;
-    private CapsuleCollider2D playerCollider;
+    private BoxCollider2D playerCollider;
 
     [SerializeField] private Vector2 standOffset, standSize;
     [SerializeField] private Vector2 crouchOffset, crouchSize;
@@ -11,7 +11,7 @@ public class PlayerColliderController : MonoBehaviour
     private void Start()
     {
         playerMovement = GetComponent<PlayerMovement>();
-        playerCollider = GetComponent<CapsuleCollider2D>();
+        playerCollider = GetComponent<BoxCollider2D>();
 
         standSize = playerCollider.size;
         standOffset = playerCollider.offset;

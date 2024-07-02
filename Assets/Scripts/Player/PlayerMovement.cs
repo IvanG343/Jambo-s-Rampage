@@ -16,13 +16,13 @@ public class PlayerMovement : MonoBehaviour
     [Header("References")]
     private Rigidbody2D playerRbody;
     private Animator playerAnim;
-    private CapsuleCollider2D playerCollider;
+    private BoxCollider2D playerCollider;
 
     private void Start()
     {
         playerRbody = GetComponent<Rigidbody2D>();
         playerAnim = GetComponent<Animator>();
-        playerCollider = GetComponent<CapsuleCollider2D>();
+        playerCollider = GetComponent<BoxCollider2D>();
     }
 
     public void Move(float dirHor, float dirVert, bool jumpBtnPressed)
