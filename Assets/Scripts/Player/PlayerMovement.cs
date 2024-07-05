@@ -1,4 +1,4 @@
-using System.Runtime.CompilerServices;
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -46,6 +46,11 @@ public class PlayerMovement : MonoBehaviour
             Crouch(dirVert);
             playerAnim.SetBool("isCrouched", isCrouched);
         }
+
+        if (dirVert == -1 && jumpBtnPressed && isGrounded())
+        {
+            StartCoroutine(FallThroughPlatform());
+        }
     }
 
     private void MovePlayer(float dirHor)
@@ -79,6 +84,13 @@ public class PlayerMovement : MonoBehaviour
             transform.localScale = new Vector2(1, 1);
         else if (direction < 0)
             transform.localScale = new Vector2(-1, 1);
+    }
+
+    private IEnumerator FallThroughPlatform()
+    {
+        playerCollider.enabled = false;
+        yield return new WaitForSeconds(0.2f);
+        playerCollider.enabled = true;
     }
 
     private bool isGrounded()
