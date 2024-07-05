@@ -9,12 +9,15 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private int maxEnemiesToSpawn;
     private float nextSpawnTime;
 
-    [Header("References")]
-    private Camera mainCamera;
+    [Header("Detection params")]
+    [SerializeField] private float colliderDistance;
+    [SerializeField] private BoxCollider2D boxCollider;
+    [SerializeField] private float offset;
+    [SerializeField] private float colliderSize;
+    [SerializeField] private LayerMask playerLayer;
 
     private void Start()
     {
-        mainCamera = Camera.main;
         nextSpawnTime = 0;
     }
 
@@ -26,8 +29,11 @@ public class EnemySpawner : MonoBehaviour
 
     private bool IsInView()
     {
-        Vector3 screenPoint = mainCamera.WorldToViewportPoint(transform.position);
-        return screenPoint.z > 0 && screenPoint.x > 0 && screenPoint.x < 1 && screenPoint.y > 0 && screenPoint.y < 1;
+        RaycastHit2D hit = Physics2D.BoxCast(boxCollider.bounds.center + transform.right * offset * transform.localScale.x * colliderDistance,
+            new Vector2(boxCollider.bounds.size.x * colliderSize, boxCollider.bounds.size.y),
+            0, Vector2.left, 0, playerLayer);
+
+        return hit.collider != null;
     }
 
     private bool CanSpawnEnemyInView()
@@ -40,6 +46,13 @@ public class EnemySpawner : MonoBehaviour
                 enemiesCount++;
         }
         return enemiesCount < maxEnemiesToSpawn;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(boxCollider.bounds.center + transform.right * offset * transform.localScale.x * colliderDistance,
+            new Vector2(boxCollider.bounds.size.x * colliderSize, boxCollider.bounds.size.y));
     }
 
     private void SpawnEnemy()

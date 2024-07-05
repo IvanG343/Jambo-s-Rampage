@@ -34,11 +34,13 @@ public class TurretController : MonoBehaviour
     [Header("References")]
     private SpriteRenderer spriteRenderer;
     private Transform playerTransform;
+    private Camera mainCamera;
 
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         playerTransform = GameObject.Find("Hero").GetComponent<Transform>();
+        mainCamera = Camera.main;
         nextFireTime = 0f;
     }
 
@@ -47,11 +49,17 @@ public class TurretController : MonoBehaviour
         Vector2 directionToPlayer = GetDirectionToPlayer();
         SetSpriteAndFirePoint(directionToPlayer);
 
-        if(Time.time >= nextFireTime)
+        if(Time.time >= nextFireTime && IsInView())
         {
             Shoot(shootDirection);
             nextFireTime = Time.time + fireRate;
         }
+    }
+
+    private bool IsInView()
+    {
+        Vector3 screenPoint = mainCamera.WorldToViewportPoint(transform.position);
+        return screenPoint.z > 0 && screenPoint.x > 0 && screenPoint.x < 1 && screenPoint.y > 0 && screenPoint.y < 1;
     }
 
     private Vector2 GetDirectionToPlayer()

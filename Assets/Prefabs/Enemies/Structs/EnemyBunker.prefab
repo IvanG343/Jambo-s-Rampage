@@ -336,9 +336,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 469136333
+  m_SortingLayer: -2
+  m_SortingOrder: 20
   m_Sprite: {fileID: 21300000, guid: 9aea2649f20d2d44ea3ebb656f18a780, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -430,6 +430,13 @@ MonoBehaviour:
   enemy: {fileID: 3111900346237131111, guid: 35a634bf24bf5774c80850e267f81f05, type: 3}
   spawnCooldown: 1.5
   maxEnemiesToSpawn: 1
+  colliderDistance: -0.3
+  boxCollider: {fileID: 2321360050965049293}
+  offset: -46
+  colliderSize: 10
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &5691324630998491928
 GameObject:
   m_ObjectHideFlags: 0
