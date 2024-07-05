@@ -371,8 +371,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb4d5178e5bd67449aa713086dea9155, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explodeDamage: 2
   moveSpeed: 12
-  damage: 2
 --- !u!114 &7776564703303200548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -385,7 +385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0326ec36e7b431143bdd2bd7ae3892eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 2
+  maxHealth: 3
   componentsToDisable:
   - {fileID: 8900935324028048677}
   - {fileID: 6302600124732995685}

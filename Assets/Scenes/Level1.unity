@@ -6682,6 +6682,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hero
       objectReference: {fileID: 0}
+    - target: {fileID: 7591782900992407713, guid: 0c80a9ce075691241a9286f778767449, type: 3}
+      propertyPath: enemyLayer.m_Bits
+      value: 8192
+      objectReference: {fileID: 0}
     - target: {fileID: 8716290150262982945, guid: 0c80a9ce075691241a9286f778767449, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.3

@@ -5,6 +5,9 @@ public abstract class Enemy : MonoBehaviour
     [Header("Detection params")]
     protected Transform playerTransform;
 
+    [Header("Damage params")]
+    [SerializeField] protected float explodeDamage;
+
     [Header("References")]
     protected Animator anim;
     protected float direction;
@@ -41,6 +44,16 @@ public abstract class Enemy : MonoBehaviour
     protected void FlipSprite(float _direction)
     {
         transform.localScale = new Vector2(_direction, 1);
+    }
+
+    protected void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            collision.gameObject.GetComponent<Health>().TakeDamage(explodeDamage);
+            gameObject.GetComponent<Health>().TakeDamage(1000);
+            anim.SetTrigger("Explode");
+        }
     }
 
     protected abstract void PerformAction();

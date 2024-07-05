@@ -6,9 +6,6 @@ public class MeleeEnemy : Enemy
     [SerializeField] private float moveSpeed;
     private Transform enemyTransform;
 
-    [Header("Damage params")]
-    [SerializeField] private float damage;
-
     protected override void Start()
     {
         base.Start();
@@ -37,19 +34,5 @@ public class MeleeEnemy : Enemy
         {
             anim.SetBool("isMoving", false);
         }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.gameObject.CompareTag("Player"))
-        {
-            collision.gameObject.GetComponent<Health>().TakeDamage(damage);
-            anim.SetTrigger("Explode");
-        }
-    }
-
-    private void OnBecameInvisible()
-    {
-        Destroy(gameObject);
     }
 }

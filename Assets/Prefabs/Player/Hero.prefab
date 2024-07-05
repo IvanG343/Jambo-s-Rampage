@@ -345,4 +345,10 @@ MonoBehaviour:
   - {fileID: 6998417353682529289}
   invDuration: 2
   flashes: 3
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 8448
   staticMat: {fileID: 6200000, guid: c199b4779a26a074f8dc7ea6531f41f5, type: 2}

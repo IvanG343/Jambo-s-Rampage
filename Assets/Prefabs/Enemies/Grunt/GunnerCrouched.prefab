@@ -261,6 +261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 676627cafaa322647ac3e9cb82922bfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explodeDamage: 2
   fireForce: 20
   attackCooldown: 3
   bulletsPerShot: 3

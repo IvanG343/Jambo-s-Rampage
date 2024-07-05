@@ -32,7 +32,7 @@ public class PlayerHealth : Health
 
     private IEnumerator Invulnerability(float _invDuration, int _flashes)
     {
-        Physics2D.IgnoreLayerCollision(7, 8, true);
+        Physics2D.IgnoreLayerCollision(7, 13, true);
         isInv = true;
         for (int i = 0; i < flashes; i++)
         {
@@ -41,7 +41,7 @@ public class PlayerHealth : Health
             spriteRenderer.color = Color.white;
             yield return new WaitForSeconds(_invDuration / (_flashes * 2));
         }
-        Physics2D.IgnoreLayerCollision(7, 8, false);
+        Physics2D.IgnoreLayerCollision(7, 13, false);
         isInv = false;
     }
 }
