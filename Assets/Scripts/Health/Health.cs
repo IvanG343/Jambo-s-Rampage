@@ -21,6 +21,11 @@ public class Health : MonoBehaviour
         get { return currentHealth; }
     }
 
+    public float MaxHealth
+    {
+        get { return maxHealth; }
+    }
+
     protected virtual void Start()
     {
         currentHealth = maxHealth;

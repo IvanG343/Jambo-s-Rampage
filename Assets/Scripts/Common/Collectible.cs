@@ -13,10 +13,11 @@ public class Collectible : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            playerHealth.Heal(1);
-            Destroy(gameObject);
-        }
-
-        
+            if(playerHealth.CurrentHealth < playerHealth.MaxHealth)
+            {
+                playerHealth.Heal(1);
+                Destroy(gameObject);
+            }
+        } 
     }
 }
