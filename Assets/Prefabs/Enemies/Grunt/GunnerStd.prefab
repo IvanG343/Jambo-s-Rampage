@@ -387,6 +387,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explodeDamage: 2
+  score: 100
   fireForce: 20
   attackCooldown: 3
   bulletsPerShot: 3

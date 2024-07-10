@@ -25,6 +25,11 @@ public class PlayerHealth : Health
         rb.sharedMaterial = staticMat;
     }
 
+    public void GameOverScreen()
+    {
+        GameManager.instance.LevelFailed();
+    }
+
     public void Heal(float value)
     {
         currentHealth = Mathf.Clamp(currentHealth + value, 0, maxHealth);

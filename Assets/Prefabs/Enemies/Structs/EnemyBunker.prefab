@@ -432,11 +432,12 @@ MonoBehaviour:
   maxEnemiesToSpawn: 1
   colliderDistance: -0.3
   boxCollider: {fileID: 2321360050965049293}
-  offset: -46
+  offset: -56.7
   colliderSize: 10
   playerLayer:
     serializedVersion: 2
     m_Bits: 128
+  score: 300
 --- !u!1 &5691324630998491928
 GameObject:
   m_ObjectHideFlags: 0

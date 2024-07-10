@@ -9,6 +9,7 @@ TagManager:
   - Enemy_Melee
   - Enemy_Portal
   - Enemy_Turret
+  - LevelCheckpoint
   layers:
   - Default
   - TransparentFX
