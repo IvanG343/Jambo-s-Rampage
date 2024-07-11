@@ -35,4 +35,9 @@ public class MeleeEnemy : Enemy
             anim.SetBool("isMoving", false);
         }
     }
+
+    private void OnBecameInvisible()
+    {
+        Destroy(gameObject);
+    }
 }
