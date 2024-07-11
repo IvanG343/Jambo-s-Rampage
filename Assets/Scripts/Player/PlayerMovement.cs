@@ -51,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
             playerAnim.SetBool("isCrouched", isCrouched);
         }
 
-        if (dirVert == -1 && jumpBtnPressed && isGrounded())
+        if (dirVert == -1 && jumpBtnPressed && isGrounded() && IsOnBridge())
         {
             StartCoroutine(FallThroughPlatform());
         }
@@ -101,5 +101,15 @@ public class PlayerMovement : MonoBehaviour
     {
         RaycastHit2D raycastHit = Physics2D.BoxCast(playerCollider.bounds.center, playerCollider.bounds.size, 0, Vector2.down, 0.1f, groundLayer);
         return raycastHit.collider != null;
+    }
+
+    private bool IsOnBridge()
+    {
+        RaycastHit2D raycastHit = Physics2D.BoxCast(playerCollider.bounds.center, playerCollider.bounds.size, 0, Vector2.down, 0.1f, groundLayer);
+        if (raycastHit.collider != null && raycastHit.collider.CompareTag("Bridge"))
+        {
+            return true;
+        }
+        return false;
     }
 }

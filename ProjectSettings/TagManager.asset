@@ -10,6 +10,7 @@ TagManager:
   - Enemy_Portal
   - Enemy_Turret
   - LevelCheckpoint
+  - Bridge
   layers:
   - Default
   - TransparentFX

@@ -5850,6 +5850,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 2814591715315435411, guid: 3ed944fdef33d8f4c8c6c52da37565a3, type: 3}
+      propertyPath: m_TagString
+      value: Bridge
+      objectReference: {fileID: 0}
     - target: {fileID: 4834787920179578064, guid: 3ed944fdef33d8f4c8c6c52da37565a3, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -10118,7 +10122,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bda2e9af79ccf047bec7c5b177be2f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxVol: 1
   minVol: 0
   clip: {fileID: 8300000, guid: 5a529e60bc94f5b4698a86eba179780b, type: 3}
   fadeInDuration: 2
@@ -100006,6 +100009,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 2814591715315435411, guid: 3ed944fdef33d8f4c8c6c52da37565a3, type: 3}
+      propertyPath: m_TagString
+      value: Bridge
+      objectReference: {fileID: 0}
     - target: {fileID: 4834787920179578064, guid: 3ed944fdef33d8f4c8c6c52da37565a3, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -108702,6 +108709,10 @@ PrefabInstance:
     - target: {fileID: 2814591715315435411, guid: 3ed944fdef33d8f4c8c6c52da37565a3, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2814591715315435411, guid: 3ed944fdef33d8f4c8c6c52da37565a3, type: 3}
+      propertyPath: m_TagString
+      value: Bridge
       objectReference: {fileID: 0}
     - target: {fileID: 4834787920179578064, guid: 3ed944fdef33d8f4c8c6c52da37565a3, type: 3}
       propertyPath: m_Layer

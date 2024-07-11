@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Game Over params")]
     [SerializeField] private GameObject enemiesToDisable;
+    private PlayerInput playerInput;
     public GameObject looseScreen;
     public GameObject winScreen;
     public bool gameOver;
@@ -24,6 +25,11 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+    }
+
+    private void Start()
+    {
+        playerInput = GameObject.Find("Hero").GetComponent<PlayerInput>();
         score = 0;
     }
 
@@ -42,7 +48,10 @@ public class GameManager : MonoBehaviour
     {
         winScreen.SetActive(true);
         finalScreenScoreText.text = score.ToString();
+
         enemiesToDisable.SetActive(false);
+        playerInput.enabled = false;
+
         MusicController.instance.StopMusic();
         SoundManager.instance.PlaySound(gameOverSound);
     }
