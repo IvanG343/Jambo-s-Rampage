@@ -3,15 +3,21 @@ using UnityEngine;
 
 public class WeaponController : MonoBehaviour
 {
+    [Header("Fire position params")]
     [SerializeField] private Transform playerTransform;
     [SerializeField] private Transform firePoint;
     [SerializeField] private GameObject bullet;
 
+    [Header("Shooting params")]
     [SerializeField] private float shotSpeed;
     [SerializeField] private float fireRate;
     private float nextShotTime;
 
+    [Header("References")]
     private Animator playerAnim;
+
+    [Header("SFX")]
+    [SerializeField] private AudioClip shotSound;
 
     private void Start()
     {
@@ -30,6 +36,7 @@ public class WeaponController : MonoBehaviour
             else
                 shotRb.velocity = new Vector2(shotSpeed * -1, shotRb.velocity.y);
 
+            SoundManager.instance.PlaySound(shotSound);
             nextShotTime = Time.time + fireRate;
         }
     }

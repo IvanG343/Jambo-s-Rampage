@@ -3,24 +3,34 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-   private void StartScene(int id)
+    public Animator animator;
+    private int levelToLoad;
+
+    public void FadeToLevel(int levelIndex)
     {
         Time.timeScale = 1.0f;
-        SceneManager.LoadScene(id);
+        levelToLoad = levelIndex;
+        animator.SetTrigger("FadeOut");
+        MusicController.instance.StopMusic();
+    }
+
+    public void OnFadeComplete()
+    {
+        SceneManager.LoadScene(levelToLoad);
     }
 
     public void StartFirstLevel()
     {
-        StartScene(1);
+        FadeToLevel(1);
     }
 
     public void RestartLevel()
     {
-        StartScene(SceneManager.GetActiveScene().buildIndex);
+        FadeToLevel(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void ExitLevel()
     {
-        StartScene(0);
+        FadeToLevel(0);
     }
 }

@@ -82,6 +82,7 @@ MonoBehaviour:
   bullet: {fileID: 8391705303991236274, guid: 3f12c526e1fcad747b864939534c45e6, type: 3}
   shotSpeed: 25
   fireRate: 0.15
+  shotSound: {fileID: 8300000, guid: 97a628379b79c2c43897ae61bcd721a0, type: 3}
 --- !u!114 &4055353079536797565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -345,10 +346,4 @@ MonoBehaviour:
   - {fileID: 6998417353682529289}
   invDuration: 2
   flashes: 3
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 128
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 8448
   staticMat: {fileID: 6200000, guid: c199b4779a26a074f8dc7ea6531f41f5, type: 2}

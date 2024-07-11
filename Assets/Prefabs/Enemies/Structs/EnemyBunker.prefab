@@ -412,7 +412,9 @@ MonoBehaviour:
   - {fileID: 7745214180284825191}
   - {fileID: 7003968207827623643}
   - {fileID: 2321360050965049293}
+  defeatedSound: {fileID: 0}
   brokenSprite: {fileID: 21300000, guid: fdb25cd5e5f9e7f47a77af2b43622d24, type: 3}
+  explosionSound: {fileID: 8300000, guid: d6f954223d464574481d8843f260c95d, type: 3}
   explosion: {fileID: 5086377387577643896, guid: 09482c6f633793c449d28a799d9e3c8b, type: 3}
 --- !u!114 &7745214180284825191
 MonoBehaviour:
@@ -437,7 +439,6 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 128
-  score: 300
 --- !u!1 &5691324630998491928
 GameObject:
   m_ObjectHideFlags: 0

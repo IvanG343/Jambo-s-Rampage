@@ -6,15 +6,20 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     [Header("Game Over params")]
+    [SerializeField] private GameObject enemiesToDisable;
     public GameObject looseScreen;
     public GameObject winScreen;
     public bool gameOver;
 
     [Header("Score params")]
-    private int score;
+    private float score;
+
+    [Header("SFX")]
+    [SerializeField] private AudioClip gameOverSound;
 
     [Header("References")]
     [SerializeField] private TMP_Text scoreText;
+    [SerializeField] private TMP_Text finalScreenScoreText;
 
     private void Awake()
     {
@@ -27,7 +32,7 @@ public class GameManager : MonoBehaviour
         scoreText.text = score.ToString();
     }
 
-    public void AddScorePoints(int scorePoints)
+    public void AddScorePoints(float scorePoints)
     {
         score += scorePoints;
     }
@@ -36,10 +41,17 @@ public class GameManager : MonoBehaviour
     public void LevelComplete()
     {
         winScreen.SetActive(true);
+        finalScreenScoreText.text = score.ToString();
+        enemiesToDisable.SetActive(false);
+        MusicController.instance.StopMusic();
+        SoundManager.instance.PlaySound(gameOverSound);
     }
 
     public void LevelFailed()
     {
         looseScreen.SetActive(true);
+        enemiesToDisable.SetActive(false);
+        MusicController.instance.StopMusic();
+        SoundManager.instance.PlaySound(gameOverSound);
     }
 }

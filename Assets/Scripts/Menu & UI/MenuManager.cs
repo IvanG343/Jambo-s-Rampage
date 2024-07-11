@@ -16,10 +16,12 @@ public class MenuManager : MonoBehaviour
     public bool isPaused;
 
     [SerializeField] private SceneLoader sceneLoader;
+    [SerializeField] private AudioClip clickSound;
 
     public void OnBtnClick(string corName)
     {
         StartCoroutine(corName);
+        SoundManager.instance.PlaySound(clickSound);
     }
 
     private IEnumerator OnNewGameBtnClick()

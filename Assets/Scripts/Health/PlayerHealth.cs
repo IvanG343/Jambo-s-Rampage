@@ -8,6 +8,9 @@ public class PlayerHealth : Health
     [SerializeField] private int flashes;
     public bool isInv { get; private set; }
 
+    [Header("SFX")]
+    [SerializeField] private AudioClip hurtSound;
+
     [Header("References")]
     public PhysicsMaterial2D staticMat;
 
@@ -16,6 +19,7 @@ public class PlayerHealth : Health
         CameraShake.Shake();
         animator.SetTrigger("Hurt");
         StartCoroutine(Invulnerability(invDuration, flashes));
+        SoundManager.instance.PlaySound(hurtSound);
     }
 
     protected override void OnDeath()
@@ -23,6 +27,7 @@ public class PlayerHealth : Health
         base.OnDeath();
         CameraShake.Shake();
         rb.sharedMaterial = staticMat;
+        SoundManager.instance.PlaySound(hurtSound);
     }
 
     public void GameOverScreen()

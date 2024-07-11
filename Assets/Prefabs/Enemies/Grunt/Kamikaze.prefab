@@ -372,7 +372,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explodeDamage: 2
-  score: 100
   moveSpeed: 12
 --- !u!114 &7776564703303200548
 MonoBehaviour:
@@ -390,6 +389,7 @@ MonoBehaviour:
   componentsToDisable:
   - {fileID: 8900935324028048677}
   - {fileID: 6302600124732995685}
+  defeatedSound: {fileID: 8300000, guid: 5b627256723166040bce359adec4f4d5, type: 3}
 --- !u!1 &3704078328391118680
 GameObject:
   m_ObjectHideFlags: 0

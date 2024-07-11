@@ -10,6 +10,9 @@ public class Health : MonoBehaviour
     [Header("Components")]
     [SerializeField] protected Behaviour[] componentsToDisable;
 
+    [Header("SFX")]
+    [SerializeField] protected AudioClip defeatedSound;
+
     [Header("References")]
     protected Rigidbody2D rb;
     protected Animator animator;
@@ -64,6 +67,9 @@ public class Health : MonoBehaviour
 
         animator.SetTrigger("Die");
         gameObject.layer = 14; //Move object to "Dead" layer, so the object is no longer interactible with other objects like player, enemy, bullets etc. 
+
+        SoundManager.instance.PlaySound(defeatedSound);
+        GameManager.instance.AddScorePoints(maxHealth * 100);
     }
 
     private void UpdateHealthBar(float _currentHealth, float _maxHealth)

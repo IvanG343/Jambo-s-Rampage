@@ -18,6 +18,9 @@ public class PlayerMovement : MonoBehaviour
     private Animator playerAnim;
     private BoxCollider2D playerCollider;
 
+    [Header("SFX")]
+    [SerializeField] private AudioClip jumpSound;
+
     private void Start()
     {
         playerRbody = GetComponent<Rigidbody2D>();
@@ -39,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
         if(jumpBtnPressed && isGrounded())
         {
             Jump();
+            SoundManager.instance.PlaySound(jumpSound);
         }
 
         if (isGrounded())

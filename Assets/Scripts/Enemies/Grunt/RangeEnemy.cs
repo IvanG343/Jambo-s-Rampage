@@ -10,6 +10,9 @@ public class RangedEnemy : Enemy
     [SerializeField] private float burstInterval = 0.1f;
     private float cooldownTimer;
 
+    [Header("SFX")]
+    [SerializeField] private AudioClip shotSound;
+
     [Header("References")]
     [SerializeField] private GameObject enemyBullet;
     [SerializeField] private Transform firePoint;
@@ -47,6 +50,8 @@ public class RangedEnemy : Enemy
         GameObject newBullet = Instantiate(enemyBullet, firePoint.position, firePoint.rotation);
         Rigidbody2D newBulletVelocity = newBullet.GetComponent<Rigidbody2D>();
         newBulletVelocity.velocity = new Vector2(fireForce * _direction, newBulletVelocity.velocity.y);
+
         anim.SetTrigger("Shoot");
+        SoundManager.instance.PlaySound(shotSound);
     }
 }

@@ -30,6 +30,9 @@ public class TurretController : MonoBehaviour
     private Vector2 shootDirection;
     private float nextFireTime;
 
+    [Header("SFX")]
+    [SerializeField] private AudioClip shotSound;
+
     [Header("References")]
     private SpriteRenderer spriteRenderer;
     private Transform playerTransform;
@@ -127,5 +130,7 @@ public class TurretController : MonoBehaviour
         GameObject bullet = Instantiate(turretBullet, firePoint.position, Quaternion.identity);
         Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
         bulletRb.velocity = _shootDirection * fireForce;
+
+        SoundManager.instance.PlaySound(shotSound);
     }
 }

@@ -262,11 +262,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explodeDamage: 2
-  score: 100
   fireForce: 20
   attackCooldown: 3
   bulletsPerShot: 3
   burstInterval: 0.15
+  shotSound: {fileID: 8300000, guid: 3bf9f43d9ef416b489794149cc8fef96, type: 3}
   enemyBullet: {fileID: 6324380906779675887, guid: d49f2d3f937752f43809804ea567302a, type: 3}
   firePoint: {fileID: 2309023038344848753}
 --- !u!114 &1104639753833760883
@@ -285,6 +285,7 @@ MonoBehaviour:
   componentsToDisable:
   - {fileID: 6301490338498168086}
   - {fileID: 2493084441612725974}
+  defeatedSound: {fileID: 8300000, guid: 5b627256723166040bce359adec4f4d5, type: 3}
 --- !u!1 &2888772314035687164
 GameObject:
   m_ObjectHideFlags: 0

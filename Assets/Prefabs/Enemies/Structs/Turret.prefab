@@ -402,7 +402,9 @@ MonoBehaviour:
   - {fileID: 4630137579490210587}
   - {fileID: 5876695114780099992}
   - {fileID: 4991891704655293857}
+  defeatedSound: {fileID: 0}
   brokenSprite: {fileID: 2087163122, guid: aa6b245fb813f584399f3a276bbec0fd, type: 3}
+  explosionSound: {fileID: 8300000, guid: d6f954223d464574481d8843f260c95d, type: 3}
   explosion: {fileID: 5086377387577643896, guid: 09482c6f633793c449d28a799d9e3c8b, type: 3}
 --- !u!114 &4630137579490210587
 MonoBehaviour:
@@ -435,7 +437,7 @@ MonoBehaviour:
   turretBullet: {fileID: 6324380906779675887, guid: d49f2d3f937752f43809804ea567302a, type: 3}
   fireForce: 20
   fireRate: 3
-  score: 200
+  shotSound: {fileID: 8300000, guid: 5fe970ce8e890e344b76914b94775e99, type: 3}
 --- !u!1 &3709524266754751232
 GameObject:
   m_ObjectHideFlags: 0
