@@ -39,10 +39,9 @@ public class PlayerMovement : MonoBehaviour
             playerAnim.SetBool("isRunning", dirHor != 0);
         }
 
-        if(jumpBtnPressed && isGrounded())
+        if(jumpBtnPressed && isGrounded() && !isCrouched)
         {
             Jump();
-            SoundManager.instance.PlaySound(jumpSound);
         }
 
         if (isGrounded())
@@ -65,6 +64,7 @@ public class PlayerMovement : MonoBehaviour
     private void Jump()
     {
         playerRbody.velocity = new Vector2(playerRbody.velocity.x, jumpForce);
+        SoundManager.instance.PlaySound(jumpSound);
     }
 
     private void Crouch(float dirVert)
