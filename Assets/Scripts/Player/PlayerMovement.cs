@@ -51,9 +51,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         if (dirVert == -1 && jumpBtnPressed && isGrounded() && IsOnBridge())
-        {
             StartCoroutine(FallThroughPlatform());
-        }
     }
 
     private void MovePlayer(float dirHor)
